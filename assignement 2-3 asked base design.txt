@@ -1,0 +1,73 @@
+Social Media Management Application
+
+C++ Programming Assignment 2 and 3
+
+Objective
+For this assignment, students will create an abstract class SocialMedia to define shared characteristics and behaviors across different social media platforms, specifically LinkedIn, Facebook, and Twitter. Each platform class will inherit from SocialMedia and implement specific features relevant to that platform.
+Here's a breakdown of each class and its purpose:
+
+1. Abstract Class: SocialMedia
+
+The SocialMedia class serves as an abstract base class that encapsulates common features of social media platforms. Since it's abstract, it cannot be instantiated directly. Instead, it provides a structure for child classes like LinkedIn, Facebook, and Twitter.
+SocialMedia Class Description:
+    • Attributes:
+        ◦ platformName (string): Stores the name of the social media platform.
+        ◦ username (string): Stores the username or account name of the user.
+        ◦ numPosts (integer): Stores the count of posts or messages shared by the user.
+    • Constructors and Destructor:
+        ◦ A default constructor that initializes the username and sets numPosts to zero.
+        ◦ A parameterized constructor that initializes platformName, username, and numPosts.
+        ◦ A virtual destructor to handle any cleanup if necessary.
+    • Pure Virtual Functions (to be implemented in derived classes):
+        ◦ void addPost(const std::string& content): Adds a new post or content. Each derived class will implement the specifics of how a post is stored and managed.
+        ◦ void displayProfile() const: Displays the user's profile information, including the username, numPosts, and platformName.
+        ◦ int countCharacters() const: Calculates and returns the total number of characters across all posts (specific implementation provided in each subclass).
+        ◦ void deletePost(int index): Deletes a post by index.
+
+2. Derived Class: LinkedIn
+
+The LinkedIn class inherits from SocialMedia and includes additional functionality relevant to LinkedIn’s professional environment. This class might include features like connection requests or endorsements, but here, it will focus on managing LinkedIn posts.
+LinkedIn Class Description:
+    • Additional Attributes:
+        ◦ connections (integer): Stores the count of professional connections.
+        ◦ jobTitle (string): Stores the job title or current position of the user.
+    • Constructors and Destructor:
+        ◦ A constructor that initializes connections and jobTitle along with the inherited attributes.
+        ◦ Destructor that prints a message indicating that a LinkedIn profile is being deleted.
+    • Implemented Member Functions:
+        ◦ addPost(const std::string& content): Adds a professional post to the collection.
+        ◦ displayProfile() const: Displays LinkedIn-specific details, including the user’s job title and connection count.
+        ◦ countCharacters() const: Iteratively calculates the total character count across all LinkedIn posts.
+        ◦ deletePost(int index): Deletes a specific post by index.
+
+3. Derived Class: Facebook
+
+The Facebook class inherits from SocialMedia and includes specific features for social sharing and interaction, such as friends, likes, and comments.
+Facebook Class Description:
+    • Additional Attributes:
+        ◦ friendsCount (integer): Stores the number of friends.
+        ◦ likesPerPost (vector<int>): Stores the number of likes each post has received.
+    • Constructors and Destructor:
+        ◦ A constructor that initializes friendsCount along with inherited attributes.
+        ◦ Destructor that prints a message indicating that a Facebook profile is being deleted.
+    • Implemented Member Functions:
+        ◦ addPost(const std::string& content): Adds a Facebook post with a corresponding initial like count.
+        ◦ displayProfile() const: Displays profile information, including the user’s friend count and average likes per post.
+        ◦ countCharacters() const: Uses a recursive approach to calculate the total character count across all Facebook posts.
+        ◦ deletePost(int index): Deletes a specific post by index and adjusts the likesPerPost vector.
+
+4. Derived Class: Twitter
+
+The Twitter class, as described, allows students to manage a collection of tweets, count characters, and utilize various functions.
+Twitter Class Description:
+    • Additional Attributes:
+        ◦ tweetCollection (vector<string>): Stores each tweet's content.
+    • Constructors and Destructor:
+        ◦ A constructor that initializes inherited attributes like username and platformName.
+        ◦ Destructor that prints a message indicating that a Twitter profile is being deleted.
+    • Implemented Member Functions:
+        ◦ addPost(const std::string& content): Adds a tweet to tweetCollection, restricting its length to Twitter’s character limit (e.g., 280 characters).
+        ◦ displayProfile() const: Displays Twitter-specific details, including tweet count.
+        ◦ countCharacters() const: Calculates the total number of characters across all tweets using both iterative and recursive approaches.
+        ◦ deletePost(int index): Deletes a tweet by index.
+This C++ assignment offers students a hands-on opportunity to implement inheritance, polymorphism, recursive and iterative methods, and manage collections, encapsulating a real-world social media simulation within C++ principles.
